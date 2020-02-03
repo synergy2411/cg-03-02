@@ -155,20 +155,17 @@
 
 
 // Class
-class Student{
-    private name : string;
-    private age : number;
-    constructor(name : string, age : number){
-        this.name = name;
-        this.age = age;
-    }
+import { Student, Employee } from './student';
+// import * as user from './student';
+import { Person } from './person';
 
-    greet() : string{
-        return `Hello from ${this.name},
-        I'm ${this.age} years old!` 
-    }
-}
-var foo = new Student("foo", 32);
+var obj : Person = {
+    name : "Foo",
+    age : new Date("Dec 24, 1985"),
+    email : "foo@test.com"
+} 
+
+var foo = new Student(obj);
 console.log(foo.greet());
 
 
@@ -187,4 +184,4 @@ console.log(foo.greet());
 
 // Module
 
-// Decorators
+// Decorators :

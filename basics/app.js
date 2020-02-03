@@ -1,5 +1,7 @@
+"use strict";
 // var x = "20";
 // var y = 20;
+exports.__esModule = true;
 // console.log(x + y);             //2020
 // console.log(x - y);             // ?
 // console.log(x == y);            // ?
@@ -73,17 +75,13 @@
 // var username = "Foo";
 // console.log(`Hello from ${username}`);
 // Class
-var Student = /** @class */ (function () {
-    function Student(name, age) {
-        this.name = name;
-        this.age = age;
-    }
-    Student.prototype.greet = function () {
-        return "Hello from " + this.name + ",\n        I'm " + this.age + " years old!";
-    };
-    return Student;
-}());
-var foo = new Student("foo", 32);
+var student_1 = require("./student");
+var obj = {
+    name: "Foo",
+    age: new Date("Dec 24, 1985"),
+    email: "foo@test.com"
+};
+var foo = new student_1.Student(obj);
 console.log(foo.greet());
 // Module
 // Decorators
