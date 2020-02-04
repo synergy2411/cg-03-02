@@ -17,19 +17,19 @@ export class UsersComponent implements OnInit, OnChanges, DoCheck, OnDestroy {
     }
 
     ngOnInit(){
-        console.log("ngOnInit");
+        // console.log("ngOnInit");
         this.users = USER_DATA;
     }
 
     ngOnChanges(changes : SimpleChanges){
-        console.log("ngOnChanges", changes)
+        // console.log("ngOnChanges", changes)
     }
 
     ngDoCheck(){
-        console.log("ngDoCheck")
+        // console.log("ngDoCheck")
     }
 
     ngOnDestroy(){
-        console.log("ngOnDestroy")
+        // console.log("ngOnDestroy")
     }
 }

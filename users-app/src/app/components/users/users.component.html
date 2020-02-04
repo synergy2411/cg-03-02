@@ -5,20 +5,43 @@
     </p>
 
     <ul class="list-unstyled">
-        <li class="card" *ngFor="let user of users">
-            <div class="row">
-                <div class="col-md-3 col-sm-3">
-                    <app-user-image (childEvent)="onMoreInfo($event)" [user]="user"></app-user-image>
+        <li class="card" appHighlight
+            *ngFor="let user of users; index as i; first as isFirst; last as isLast; even as isEven; odd as isOdd;">
+            
+            <div class="card card-header">
+                Index : {{ i }} / Is this First? : {{ isFirst }} / Is this Last? : {{isLast}} /
+                    Is this Even? : {{ isEven }} / Is this Odd? : {{ isOdd }}
+            </div>
+
+            <div class="card card-body">
+                <div class="row">
+                    <div class="col-md-3 col-sm-3">
+                        <app-user-image (childEvent)="onMoreInfo($event)" [user]="user"></app-user-image>
+                    </div>
+
+                    <div class="col-md-9 col-sm-9">
+                        <app-user-detail [user]="user">
+                            <header>Header Info</header>
+                            <main>Main Section</main>
+                            <footer>Footer Info</footer>
+                        </app-user-detail>
+                    </div>
                 </div>
 
-                <div class="col-md-9 col-sm-9">
-                    <app-user-detail [user]="user">
-                        <header>Header Info</header>
-                        <main>Main Section</main>
-                        <footer>Footer Info</footer>
-                    </app-user-detail>
-                </div>
             </div>
+
         </li>
     </ul>
+
+    <!-- <div [ngSwitch]="expr">
+        <div *ngSwitchCase="case1">Output 1</div>
+        <div *ngSwitchCase="case2">Output 2</div>
+        <div *ngSwitchCase="case3">Output 3</div>
+        <div *ngSwitchDefault>Default Output</div>
+    </div> -->
+
 </div>
+
+
+
+
