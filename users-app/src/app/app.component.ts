@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'users-app';
+  title = 'My Awesome User App';
+  showUser :boolean = true;
+
+  onToggle(){
+    this.showUser = !this.showUser;
+  }
 }

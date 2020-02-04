@@ -1,21 +1,24 @@
 <div class="container">
-<ul class="list-unstyled">
-<li class="card">
-    <div class="row">
-        <div class="col-md-3 col-sm-3">
-            <app-user-image 
-                (childEvent)="onMoreInfo($event)" 
-                [user] = "user"></app-user-image>
-        </div>
 
-        <div class="col-md-9 col-sm-9">
-            <app-user-detail [user] = "user">
-                <header>Header Info</header>
-                <main>Main Section</main>
-                <footer>Footer Info</footer>
-            </app-user-detail>
-        </div>
-    </div>
-</li>
-</ul>
+    <p class="display-4 text-primary text-center">
+        {{title}}
+    </p>
+
+    <ul class="list-unstyled">
+        <li class="card" *ngFor="let user of users">
+            <div class="row">
+                <div class="col-md-3 col-sm-3">
+                    <app-user-image (childEvent)="onMoreInfo($event)" [user]="user"></app-user-image>
+                </div>
+
+                <div class="col-md-9 col-sm-9">
+                    <app-user-detail [user]="user">
+                        <header>Header Info</header>
+                        <main>Main Section</main>
+                        <footer>Footer Info</footer>
+                    </app-user-detail>
+                </div>
+            </div>
+        </li>
+    </ul>
 </div>
