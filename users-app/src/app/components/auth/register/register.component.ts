@@ -17,17 +17,28 @@ export class RegisterComponent implements OnInit {
     Validators.minLength(6),
     this.isExclamationAvailable
   ]);
+  cnfPassword = new FormControl("", [
+    this.confirmPassword
+  ])
   registerForm: FormGroup;
 
   constructor(private fb: FormBuilder) {
     this.registerForm = fb.group({
       username: this.username,
-      password: this.password
+      password: this.password,
+      cnfPassword : this.cnfPassword
     })
   }
 
-  isExclamationAvailable(control: FormControl) {
-    const hasExclamtion = control.value.indexOf("!") >= 0;
+  confirmPassword(input : FormControl){
+      if(input.root){
+        const samePassword = input.root.value.password === input.value;
+        return samePassword ? null : {cnfpassword : true};
+      }
+  }
+
+  isExclamationAvailable(input: FormControl) {
+    const hasExclamtion = input.value.indexOf("!") >= 0;
     return hasExclamtion ? null : { needExclamtion: true }
   }
 

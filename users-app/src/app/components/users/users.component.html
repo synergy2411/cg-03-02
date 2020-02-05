@@ -1,7 +1,8 @@
 <div class="container">
 
+
     <p class="display-4 text-primary text-center">
-        {{title}}
+        {{title}} <br> Counter :: {{ dataService.counter }}
     </p>
 
     <ul class="list-unstyled">
@@ -9,8 +10,8 @@
             *ngFor="let user of users; index as i; first as isFirst; last as isLast; even as isEven; odd as isOdd;">
             
             <div class="card card-header">
-                Index : {{ i }} / Is this First? : {{ isFirst }} / Is this Last? : {{isLast}} /
-                    Is this Even? : {{ isEven }} / Is this Odd? : {{ isOdd }}
+                Index : {{ i }} || Is this First? : {{ isFirst }} || Is this Last? : {{isLast}} ||
+                    Is this Even? : {{ isEven }} || Is this Odd? : {{ isOdd }}
             </div>
 
             <div class="card card-body">

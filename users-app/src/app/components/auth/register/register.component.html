@@ -64,6 +64,31 @@
 
                 </div>
 
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm-4 offset-sm-2 col-md-4 offset-md-2">
+                            <label for="cnfpassword">Confirm Password : </label>
+                        </div>
+                        <div class="col-sm-4 col-md-4">
+                            <input type="password" name="cnfpassword" class="form-control" 
+                                [formControl]="cnfPassword">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-8  offset-sm-2 col-md-8 offset-md-2">
+                            <div [hidden]="cnfPassword.valid || cnfPassword.untouched">
+                                <div class="alert alert-danger">
+                                    Some Problem with confirm password.
+                                    <div [hidden]="!cnfPassword.hasError('cnfpassword')">
+                                        *Confirm Password must be same as password.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
 
                 <br>
                 <div class="row">

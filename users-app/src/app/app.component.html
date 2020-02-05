@@ -1,17 +1,19 @@
 
 
-<app-register></app-register>
+<!-- <app-register></app-register> -->
 
 <!-- <app-login></app-login> -->
 <!-- <app-pipe-demo></app-pipe-demo> -->
 
-<br>
-<hr> 
+<!-- <br>
+<hr>  -->
 
-<button class="btn btn-primary" 
+<!-- <button class="btn btn-primary" 
     (click) = "onToggle()">
     Toggle User
-</button>
+</button> -->
+
+<button class="btn btn-dark" (click) = "onIncrease()">Increase Counter</button>
 
 <div class="container" *ngIf="showUser">
     <app-users [title]="title"></app-users>

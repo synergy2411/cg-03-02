@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DataService } from './services/data.service';
 
 @Component({
   selector: 'app-root',
@@ -11,5 +12,11 @@ export class AppComponent {
 
   onToggle(){
     this.showUser = !this.showUser;
+  }
+
+  constructor(private dataService : DataService){}
+
+  onIncrease(){
+    this.dataService.counter++;
   }
 }

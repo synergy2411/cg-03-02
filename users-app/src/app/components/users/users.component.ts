@@ -1,11 +1,13 @@
 import { Component, OnInit, Input, OnChanges, SimpleChanges, DoCheck, OnDestroy } from '@angular/core';
 import { IUser } from '../../model/user.model';
-import { USER_DATA } from '../../model/mocks';
+import { DataService } from '../../services/data.service';
+// import { USER_DATA } from '../../model/mocks';
 
 @Component({
     selector: "app-users",
     templateUrl: `./users.component.html`,
-    styleUrls: [`./users.component.css`]
+    styleUrls: [`./users.component.css`],
+    providers : [DataService] 
 })
 export class UsersComponent implements OnInit, OnChanges, DoCheck, OnDestroy {
     @Input('title') title : string;
@@ -16,9 +18,10 @@ export class UsersComponent implements OnInit, OnChanges, DoCheck, OnDestroy {
         alert(`${user.firstName} is working with ${user.company}!!!`);
     }
 
+    constructor(public dataService : DataService){}
+
     ngOnInit(){
-        // console.log("ngOnInit");
-        this.users = USER_DATA;
+        this.users = this.dataService.getData();
     }
 
     ngOnChanges(changes : SimpleChanges){
