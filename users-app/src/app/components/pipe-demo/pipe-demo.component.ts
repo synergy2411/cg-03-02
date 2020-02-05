@@ -33,6 +33,11 @@ export class PipeDemoComponent implements OnInit {
   })
 
 
+  onAddNewItem(){
+    this.todos.push({label : "New Item Added", status : "pending"});
+  }
+
+
   constructor() { }
 
   ngOnInit() {

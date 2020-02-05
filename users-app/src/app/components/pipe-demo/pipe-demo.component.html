@@ -3,30 +3,40 @@
         Promise Data : {{ promiseData | async}} <br>
         Contact Number : {{ contact_no | nationalcode }}
     </p>
-
     <div class="row">
-        <div class="col-md-6 col-sm-6">
-            <select class="form-control" [(ngModel)] = "filteredStatus">
-                <option value="done">Done Tasks</option>
-                <option value="pending">Pending Tasks</option>
-            </select>
-        </div>
-        <div class="col-md-6 col-sm-6">
-            <button class="btn btn-block btn-outline-primary">
-                Add new Item
-            </button>
+        <div class="col-sm-10 offset-sm-1 col-md-8 offset-md-2">
+            <div class="card bg-dark">
+                <div class="card card-header">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6">
+                            <select class="form-control" [(ngModel)] = "filteredStatus">
+                                <option value="done">Done Tasks</option>
+                                <option value="pending">Pending Tasks</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <button class="btn btn-block btn-outline-primary" 
+                                (click) = "onAddNewItem()">
+                                Add new Item
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card card-body">
+
+                    <ul class="list-group">
+                        <li class="list-group-item" 
+                        *ngFor="let todo of todos | filter : filteredStatus">
+                            {{ todo.label | uppercase }}
+                            <span class="badge badge-secondary float-right">
+                                {{ todo.status }}
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
-    <br>
-    <hr>
-    <ul class="list-group">
-        <li class="list-group-item" 
-        *ngFor="let todo of todos | filter : filteredStatus">
-            {{ todo.label | uppercase }}
-            <span class="badge badge-secondary float-right">
-                {{ todo.status }}
-            </span>
-        </li>
-    </ul>
+
 
 </div>

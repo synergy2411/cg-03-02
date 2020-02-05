@@ -1,11 +1,13 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'filter'
+  name: 'filter',
+  pure : false
 })
 export class FilterPipe implements PipeTransform {
 
   transform(todos: any, filteredStatus : string){
+    console.log("[TRANSFORM]")
     if(todos.length === 0 || filteredStatus === ""){
       return todos;
     }
@@ -18,5 +20,4 @@ export class FilterPipe implements PipeTransform {
     }
     return resultArray;
   }
-
 }
