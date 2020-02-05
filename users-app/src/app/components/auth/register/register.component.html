@@ -4,30 +4,71 @@
     <div class="card">
         <div class="card card-body">
             <p class="display-4 text-primary text-center">Register Form</p>
-            <form>
+            <form [formGroup]="registerForm">
                 <div class="form-group">
                     <div class="row">
                         <div class="col-sm-4 offset-sm-2 col-md-4 offset-md-2">
                             <label for="username">Username : </label>
                         </div>
                         <div class="col-sm-4 col-md-4">
-                            <input type="text" name="username" class="form-control">
+                            <input type="text" name="username" class="form-control" [formControl]="username">
                         </div>
                     </div>
+
+                    <div class="row">
+                        <div class="col-sm-8  offset-sm-2 col-md-8 offset-md-2">
+                            <div [hidden]="username.valid || username.untouched">
+                                <div class="alert alert-danger">
+                                    Some Problem with Username.
+                                    <div [hidden]="!username.hasError('required')">
+                                        *Username is mandatory field.
+                                    </div>
+                                    <div [hidden]="!username.hasError('email')">
+                                        *Username must be in email format.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
 
-                <div class="row">
-                    <div class="col-sm-4 offset-sm-2 col-md-4 offset-md-2">
-                        <label for="password">Password : </label>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm-4 offset-sm-2 col-md-4 offset-md-2">
+                            <label for="password">Password : </label>
+                        </div>
+                        <div class="col-sm-4 col-md-4">
+                            <input type="password" name="password" class="form-control" [formControl]="password">
+                        </div>
                     </div>
-                    <div class="col-sm-4 col-md-4">
-                        <input type="paswword" name="password" class="form-control">
+
+                    <div class="row">
+                        <div class="col-sm-8  offset-sm-2 col-md-8 offset-md-2">
+                            <div [hidden]="password.valid || password.untouched">
+                                <div class="alert alert-danger">
+                                    Some Problem with password.
+                                    <div [hidden]="!password.hasError('required')">
+                                        *Password is mandatory field.
+                                    </div>
+                                    <div [hidden]="!password.hasError('minlength')">
+                                        *Password must have 6 characters.
+                                    </div>
+                                    <div [hidden]="!password.hasError('needExclamtion')">
+                                        *Password must contain exclamation (!) mark.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+
                 </div>
+
+
                 <br>
                 <div class="row">
                     <div class="col-sm-8  offset-sm-2 col-md-8 offset-md-2">
-                        <button class="btn btn-block btn-outline-primary btn-block">
+                        <button class="btn btn-block btn-outline-primary btn-block" (click)="onRegister()">
                             Register
                         </button>
                     </div>
