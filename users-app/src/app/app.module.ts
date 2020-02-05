@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { UsersComponent } from './components/users/users.component';
@@ -13,6 +14,7 @@ import { FilterPipe } from './pipes/filter.pipe';
 import { LoginComponent } from './components/auth/login/login.component';
 import { RegisterComponent } from './components/auth/register/register.component';
 import { DataService } from './services/data.service';
+import { ObservableDemoComponent } from './components/observable-demo/observable-demo.component';
 
 @NgModule({
   declarations: [
@@ -21,10 +23,11 @@ import { DataService } from './services/data.service';
     NationalCodePipe,
     FilterPipe,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ObservableDemoComponent
   ],
   imports: [
-    BrowserModule, FormsModule, ReactiveFormsModule
+    BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule 
   ],
   providers: [ DataService ],
   bootstrap: [AppComponent]

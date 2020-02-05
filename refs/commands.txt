@@ -29,6 +29,15 @@ typescriptlang.org > documentation > handbook
 
 > npm install bootstrap --save
 
+> ng generate component <comp_name> / ng g c <comp_name>
+
+> ng g c components/pipe-demo
+
+> ng g p pipes/filter
+
+> ng g c components/auth/login
+
+> ng g c components/auth/register
 
 
 
