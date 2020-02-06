@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { RouterModule } from '@angular/router';
 import { EmployeeModule } from './module/employee/employee.module';
+import { StoreModule } from '@ngrx/store';
 
 import { AppComponent } from './app.component';
 import { UsersComponent } from './components/users/users.component';
@@ -22,6 +23,8 @@ import { TodoDataService } from './services/todo-data.service';
 import { TodoComponent } from './components/todo/todo.component';
 import { APP_ROUTES } from './app.routes';
 import { HeaderComponent } from './components/header/header.component';
+import { CounterComponent } from './components/counter/counter.component';
+import { counterReducer } from './store/counter.reducer';
 
 @NgModule({
   declarations: [
@@ -33,12 +36,14 @@ import { HeaderComponent } from './components/header/header.component';
     RegisterComponent,
     ObservableDemoComponent,
     TodoComponent,
-    HeaderComponent
+    HeaderComponent,
+    CounterComponent
   ],
   imports: [
     BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule,
     InMemoryWebApiModule.forRoot(TodoDataService),
-    RouterModule.forRoot(APP_ROUTES), EmployeeModule
+    RouterModule.forRoot(APP_ROUTES), EmployeeModule,
+    StoreModule.forRoot({ ctr : counterReducer})
   ],
   providers: [ DataService ],
   bootstrap: [AppComponent]
