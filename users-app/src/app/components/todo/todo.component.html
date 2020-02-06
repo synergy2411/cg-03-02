@@ -1,0 +1,32 @@
+<div class="container">
+
+
+    <p class="display-4 text-primary text-center">Todo List</p>
+
+    <div class="row">
+        <div class="col-sm-8 col-md-8">
+            <input type="text" class="form-control" [(ngModel)]="todoLabel" name="label">
+        </div>
+        <div class="col-sm-4 col-md-4">
+            <button class="btn btn-block btn-primary" (click)="onAddNewItem()">Add New Item</button>
+        </div>
+    </div>
+    <br>
+    <hr>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <td>Label</td>
+                <td>Status</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let todo of todos">
+                <td>{{ todo.label }}</td>
+                <td>{{ todo.status }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>

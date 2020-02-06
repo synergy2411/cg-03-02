@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 
 import { AppComponent } from './app.component';
 import { UsersComponent } from './components/users/users.component';
@@ -15,6 +16,8 @@ import { LoginComponent } from './components/auth/login/login.component';
 import { RegisterComponent } from './components/auth/register/register.component';
 import { DataService } from './services/data.service';
 import { ObservableDemoComponent } from './components/observable-demo/observable-demo.component';
+import { TodoDataService } from './services/todo-data.service';
+import { TodoComponent } from './components/todo/todo.component';
 
 @NgModule({
   declarations: [
@@ -24,10 +27,12 @@ import { ObservableDemoComponent } from './components/observable-demo/observable
     FilterPipe,
     LoginComponent,
     RegisterComponent,
-    ObservableDemoComponent
+    ObservableDemoComponent,
+    TodoComponent
   ],
   imports: [
-    BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule 
+    BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule,
+    InMemoryWebApiModule.forRoot(TodoDataService)
   ],
   providers: [ DataService ],
   bootstrap: [AppComponent]
