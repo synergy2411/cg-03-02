@@ -11,18 +11,20 @@ export class TodoComponent implements OnInit {
 
   todoLabel: string = "";
   todos: ITodo[] = [];
-  todo : ITodo;
+  todo: ITodo;
 
   constructor(private todoService: TodoService) { }
 
   ngOnInit() {
+    this.getAllTodos();
+  }
+
+  getAllTodos() {
     this.todoService.getTodos()
       .subscribe(response => {
-        console.log("TODO RESPONSE : ", response);
         this.todos = <ITodo[]>response;
       })
   }
-
   onAddNewItem() {
     let newTodo: ITodo = {
       id: this.todos.length + 1,
@@ -32,7 +34,6 @@ export class TodoComponent implements OnInit {
     this.todoService.createTodo(newTodo)
       .subscribe(
         (response: ITodo) => {
-          console.log(response);
           this.todos.push(response);
           this.todoLabel = "";
         },
@@ -43,10 +44,21 @@ export class TodoComponent implements OnInit {
   onSelectItem(id: number) {
     this.todoService.getTodoItem(id)
       .subscribe(
-        (response : ITodo) => {
+        (response: ITodo) => {
           this.todo = response;
         },
         err => console.log(err));
+  }
+
+  onDeleteItem(id: number) {
+    this.todoService.deleteTodo(id)
+      .subscribe(
+        (resp) => {
+          this.getAllTodos();
+          this.todo = null;
+        },
+        err => console.log(err)
+      )
   }
 
 }

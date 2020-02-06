@@ -7,7 +7,8 @@ export class DataService{
     counter = 0;
     
     getData(){
-        return this.httpClient.get("./assets/data/user.json")
+        this.httpClient.get("/assets/data/user.json").subscribe(resp => console.log(resp))
+        // return this.httpClient.get("./assets/data/user.json")
         // return USER_DATA;
     }
 

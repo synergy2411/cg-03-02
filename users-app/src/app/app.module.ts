@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { UsersComponent } from './components/users/users.component';
@@ -18,6 +19,8 @@ import { DataService } from './services/data.service';
 import { ObservableDemoComponent } from './components/observable-demo/observable-demo.component';
 import { TodoDataService } from './services/todo-data.service';
 import { TodoComponent } from './components/todo/todo.component';
+import { APP_ROUTES } from './app.routes';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -28,11 +31,13 @@ import { TodoComponent } from './components/todo/todo.component';
     LoginComponent,
     RegisterComponent,
     ObservableDemoComponent,
-    TodoComponent
+    TodoComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule,
-    InMemoryWebApiModule.forRoot(TodoDataService)
+    InMemoryWebApiModule.forRoot(TodoDataService),
+    RouterModule.forRoot(APP_ROUTES)
   ],
   providers: [ DataService ],
   bootstrap: [AppComponent]

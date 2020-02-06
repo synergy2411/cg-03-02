@@ -7,7 +7,7 @@ import { ITodo } from '../model/todo.model';
 })
 export class TodoService {
 
-    SERVER_URL: string = "http://localhost:8080/api/todos";
+    SERVER_URL: string = "http://localhost:4200/api/todos";
 
     constructor(private httpClient: HttpClient) { }
 
@@ -23,7 +23,10 @@ export class TodoService {
         return this.httpClient.post(this.SERVER_URL, todo);
     }
 
-    deleteTodo(id: number) { }
+    deleteTodo(id: number) { 
+        return this.httpClient
+            .delete( `${this.SERVER_URL}/${id}`);
+    }
 
     updateTodo(id: number, todo: ITodo) { }
 

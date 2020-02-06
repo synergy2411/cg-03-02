@@ -21,12 +21,15 @@ export class UsersComponent implements OnInit, OnChanges, DoCheck, OnDestroy {
     constructor(public dataService : DataService){}
 
     ngOnInit(){
-        this.dataService.getData()
-            .subscribe(
-                response => this.users = <IUser[]>response['userdata'],
-                err => console.log(err),
-                () => console.log("Completed")
-                );
+        // this.dataService.getData()
+            // .subscribe(
+            //     response => {
+            //         this.users = <IUser[]>response['userdata'];
+            //         console.log(this.users)
+            //     },
+            //     err => console.log("ERROR : ", err),
+            //     () => console.log("Completed")
+            //     );
     }
 
     ngOnChanges(changes : SimpleChanges){
