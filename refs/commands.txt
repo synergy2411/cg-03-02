@@ -39,8 +39,11 @@ typescriptlang.org > documentation > handbook
 
 > ng g c components/auth/register
 
+> ng g c components/observable-demo
 
+> npm install --save angular-in-memory-web-api 
 
+> ng g c components/todo
 
 
 
