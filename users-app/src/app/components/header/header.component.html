@@ -1,13 +1,14 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">My Awesome App</a>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-item nav-link" [routerLink]="['login']">Login</a>
-        <a class="nav-item nav-link" [routerLink]="['register']">Register</a>
-        <a class="nav-item nav-link" [routerLink]="['pipedemo']">Pipe</a>
-        <a class="nav-item nav-link" [routerLink]="['observabledemo']">Observable</a>
-        <a class="nav-item nav-link" [routerLink]="['todo']">Todo</a>
-        <a class="nav-item nav-link" [routerLink]="['users']">Users</a>
-      </div>
+  <a class="navbar-brand" [routerLink]="['todo']">Todo App</a>
+  <div>
+    <div class="navbar-nav">
+      <a class="nav-item nav-link" [routerLink]="['login']">Login</a>
+      <a class="nav-item nav-link" [routerLink]="['register']">Register</a>
+      <a class="nav-item nav-link" [routerLink]="['pipedemo']">Pipe</a>
+      <a class="nav-item nav-link" [routerLink]="['observabledemo']">Observable</a>
+      <a class="nav-item nav-link" [queryParams]="{'type' : 'admin'}" [routerLink]="['users', 3, 'Steve']">Users</a>
+      <a class="nav-item nav-link" [routerLink]="['lazy']">Lazy</a>
     </div>
-  </nav>
+
+  </div>
+</nav>

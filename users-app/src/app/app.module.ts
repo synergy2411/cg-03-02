@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { RouterModule } from '@angular/router';
+import { EmployeeModule } from './module/employee/employee.module';
 
 import { AppComponent } from './app.component';
 import { UsersComponent } from './components/users/users.component';
@@ -37,7 +38,7 @@ import { HeaderComponent } from './components/header/header.component';
   imports: [
     BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule,
     InMemoryWebApiModule.forRoot(TodoDataService),
-    RouterModule.forRoot(APP_ROUTES)
+    RouterModule.forRoot(APP_ROUTES), EmployeeModule
   ],
   providers: [ DataService ],
   bootstrap: [AppComponent]

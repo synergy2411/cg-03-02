@@ -22,8 +22,11 @@ export const APP_ROUTES : Routes = [{
     path : "todo",
     component : TodoComponent
 }, {
-    path : "users",
+    path : "users/:id/:username",
     component : UsersComponent
+},{
+    path : "lazy",
+    loadChildren : "./module/lazy/lazy.module#LazyModule"               // path/to/lazy_module/LazyModuleFileName#LazyModuleClassName
 }, {
     path : "**",
     redirectTo : "login",
