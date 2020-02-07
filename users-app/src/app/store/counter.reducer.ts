@@ -1,4 +1,5 @@
 import { Action } from '@ngrx/store'
+import * as fromActions from './counter.action';
 
 export interface CounterType {
     counter : number;
@@ -9,21 +10,21 @@ const intitailState = {
 }
 export const counterReducer = (
     state : CounterType = intitailState , 
-    action : Action) => {
+    action : fromActions.CounterActions) => {
 
     switch (action.type) {
-        case "INCREMENT": return {
+        case fromActions.INCREMENT: return {
             counter : state.counter + 1
         }
-        case "DECREMENT": return {
+        case fromActions.DECREMENT: return {
             counter : state.counter - 1
         }
-        case "ADD_NUMBER": return {
-            // counter : state.counter + action.value
+        case fromActions.ADD_NUMBER: return {
+            counter : state.counter + action.payload
         }
-        case "SUBSTRACT_NUMBER": return {
-            // counter : state.counter - action.value
-        }
+        // case fromActions.SUBSTRACT_NUMBER: return {
+        //     // counter : state.counter - action.value
+        // }
         default:
             return state;
     }

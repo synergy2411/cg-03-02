@@ -45,6 +45,7 @@ typescriptlang.org > documentation > handbook
 
 > ng g c components/todo
 
+> npm install @ngrx/store --save
 
 
 
