@@ -22,9 +22,9 @@ export const counterReducer = (
         case fromActions.ADD_NUMBER: return {
             counter : state.counter + action.payload
         }
-        // case fromActions.SUBSTRACT_NUMBER: return {
-        //     // counter : state.counter - action.value
-        // }
+        case fromActions.SUBSTRACT_NUMBER: return {
+            counter : state.counter - action.payload
+        }
         default:
             return state;
     }

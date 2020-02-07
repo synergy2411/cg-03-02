@@ -13,6 +13,7 @@ export class CounterComponent implements OnInit {
   constructor(private store : Store<CounterType>) { }
 
   ngOnInit() {
+    this.store.dispatch(new fromActions.Init());
     this.store.subscribe(response => {
       this.counter = response['ctr'].counter;
     })
@@ -30,4 +31,9 @@ export class CounterComponent implements OnInit {
   onAddNumber(num : number){
     this.store.dispatch(new fromActions.AddNumber(num));
   }
+
+  onSubstractNumber(num: number){
+    this.store.dispatch(new fromActions.SubtractNumber(num));
+  }
+
 }

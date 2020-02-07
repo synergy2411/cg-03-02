@@ -47,5 +47,7 @@ typescriptlang.org > documentation > handbook
 
 > npm install @ngrx/store --save
 
+> npm install --save @ngrx/store-devtools
+
 
 
