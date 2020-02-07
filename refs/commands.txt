@@ -45,9 +45,40 @@ typescriptlang.org > documentation > handbook
 
 > ng g c components/todo
 
-> npm install @ngrx/store --save
+
+NGRX commands
+--------------
+> npm install --save @ngrx/store 
 
 > npm install --save @ngrx/store-devtools
+
+> npm install --save @ngrx/effects
+
+
+CLI Angular Universal Setup
+----------------------------
+> ng add @nguniversal/express-engine --clientProject <name_of_project>
+
+> npm run build:ssr && npm run serve:ssr
+
+
+Adding Angular PWA
+-------------------
+> ng add @angular/pwa
+
+
+To create Angular build
+-----------------------
+> ng build --prod
+
+
+To install Http based static server
+-----------------------------------
+> npm install serve -g
+
+
+
+
 
 
 

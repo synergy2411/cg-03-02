@@ -9,6 +9,7 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSliderModule } from '@angular/material/slider';
  
 import { AppComponent } from './app.component';
 import { UsersComponent } from './components/users/users.component';
@@ -30,6 +31,8 @@ import { CounterComponent } from './components/counter/counter.component';
 import { counterReducer } from './store/counter.reducer';
 import { CounterEffects } from './store/counter.effects';
 import { AnimationDemoComponent } from './components/animation-demo/animation-demo.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -46,13 +49,15 @@ import { AnimationDemoComponent } from './components/animation-demo/animation-de
     AnimationDemoComponent
   ],
   imports: [
-    BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }), FormsModule, ReactiveFormsModule, HttpClientModule,
     InMemoryWebApiModule.forRoot(TodoDataService),
     RouterModule.forRoot(APP_ROUTES), EmployeeModule,
     StoreModule.forRoot({ ctr : counterReducer}),
     StoreDevtoolsModule.instrument(),
     EffectsModule.forRoot([ CounterEffects ]),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatSliderModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [ DataService ],
   bootstrap: [AppComponent]

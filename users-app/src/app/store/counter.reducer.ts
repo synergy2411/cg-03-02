@@ -8,9 +8,9 @@ export interface CounterType {
 const intitailState = {
     counter : 0
 }
-export const counterReducer = (
+export function counterReducer(
     state : CounterType = intitailState , 
-    action : fromActions.CounterActions) => {
+    action : fromActions.CounterActions) {
 
     switch (action.type) {
         case fromActions.INCREMENT: return {

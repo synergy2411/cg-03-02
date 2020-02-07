@@ -7,6 +7,10 @@ import { TodoComponent } from './components/todo/todo.component';
 import { UsersComponent } from './components/users/users.component';
 
 export const APP_ROUTES : Routes = [{
+    path : "",
+    redirectTo : "login",
+    pathMatch : "full"
+},{
     path : "login",                         // http://localhost:4200/login
     component : LoginComponent
 },{
